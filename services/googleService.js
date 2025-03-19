@@ -10,7 +10,7 @@ const client = new OAuth2Client(
 const verifyGoogleCode = async (code) => {
   const { tokens } = await client.getToken({
     code,
-    redirect_uri: process.env.FRONT_BASE_URL,
+    redirect_uri: process.env.GOOGLE_REDIRECT_URL,
   });
 
   // 2. Verify the ID token
