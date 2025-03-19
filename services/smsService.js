@@ -2,7 +2,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 const sendSMS = async (phone, otp) => {
-  const url = "https://api.sendberry.com/SMS/SEND";
+  const url = process.env.SMS_BASE_URL;
 
   const params = {
     key: process.env.SMS_API_KEY,

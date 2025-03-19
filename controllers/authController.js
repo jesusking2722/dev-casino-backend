@@ -66,7 +66,7 @@ const sendEmailVerifyLink = async (req, res) => {
     const token = jwt.sign({ id: user[0].id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    const verificationLink = `http://127.0.0.1:5001/api/auth/email/verify?token=${token}`;
+    const verificationLink = `${process.env.BASE_URL}/auth/email/verify?token=${token}`;
     await sendVerificationEmail(email, verificationLink);
     res.json({ ok: true, message: "Please check your inbox" });
   } catch (error) {
