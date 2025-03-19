@@ -4,13 +4,13 @@ require("dotenv").config();
 const client = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  process.env.FRONT_BASE_URL
+  process.env.BASE_URL
 );
 
 const verifyGoogleCode = async (code) => {
   const { tokens } = await client.getToken({
     code,
-    redirect_uri: process.env.FRONT_BASE_URL,
+    redirect_uri: process.env.BASE_URL,
   });
 
   // 2. Verify the ID token
