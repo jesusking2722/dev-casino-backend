@@ -7,6 +7,9 @@ const client = new OAuth2Client(
   process.env.FRONT_BASE_URL
 );
 
+console.log("FRONT_BASE_URL: ", process.env.FRONT_BASE_URL);
+console.log("GOOGLE_REDIRECT_URL: ", process.env.GOOGLE_REDIRECT_URL);
+
 const verifyGoogleCode = async (code) => {
   const { tokens } = await client.getToken({
     code,
